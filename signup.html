@@ -27,7 +27,16 @@
 </body>
 <script>
 
- 
+  function uyeOl() {
+    var username = document.getElementById("username").value;
+    var password = document.getElementById("password").value;
+    if (username != "" && password != "") {
+      alert("Üye olma işlemi Başarılı!");
+      window.location.href = "login.html?username=" + username + "&password=" + password; // Redirecting to other page.
+      // window.location = "login.html?sk=" + EncryptStringAES(username + "|" + password);
+    }
+
+  }
 </script>
 
 </html>

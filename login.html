@@ -25,7 +25,31 @@
     </div>
     <script>
 
-        
+        var attempt = 3; // Variable to count number of attempts.
+        // Below function Executes on click of login button.
+        function girisYap() {
+            var username = new URLSearchParams(window.location.search).get('username');
+            var password = new URLSearchParams(window.location.search).get('password');
+            // var username = DecryptStringAES(new URLSearchParams(window.location.search).get('sk').toString().replaceAll(" ", "+")).split('|')[0];
+            // var password = DecryptStringAES(new URLSearchParams(window.location.search).get('sk').toString().replaceAll(" ", "+")).split('|')[1];    
+            var usernameInput = document.getElementById("username").value;
+            var passwordInput = document.getElementById("password").value;
+
+            if (username == usernameInput && password == passwordInput) {
+                alert("Giriş Başarılı");
+                window.location.href = "https://clarusway.com"; // Redirecting to other page.
+            }
+            else {
+                attempt--;// Decrement
+                alert(attempt + " deneme hakkınız kaldı!");
+                // Disabling fields after 3 attempts.
+                if (attempt == 0) {
+                    document.getElementById("username").disabled = true;
+                    document.getElementById("password").disabled = true;
+                    document.getElementById("submit").disabled = true;
+                }
+            }
+        }
     </script>
 </body>
 
